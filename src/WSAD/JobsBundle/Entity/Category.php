@@ -23,8 +23,36 @@ class Category
      * @var string $slug
      */
     private $slug;
+    
+	/**
+	* @var WSAD\JobsBundle\Entity\Job
+	*/
+    private $jobs;
 
+    public function __construct()
+    {
+        $this->jobs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add jobs
+     *
+     * @param WSAD\JobsBundle\Entity\Jobs $jobs
+     */
+    public function addJobs(\WSAD\JobsBundle\Entity\Job $job)
+    {
+    	$this->jobs[] = $job;
+    }
+    
+    /**
+     * Get jobs
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getJobs()
+    {
+    	return $this->jobs;
+    }
     /**
      * Get id
      *

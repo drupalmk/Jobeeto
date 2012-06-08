@@ -1,6 +1,6 @@
 WSAD\JobsBundle\Entity\Category:
   type: entity
-  table: null
+  table: categories
   fields:
     id:
       type: integer
@@ -13,4 +13,17 @@ WSAD\JobsBundle\Entity\Category:
     slug:
       type: string
       length: 255
+      gedmo:
+        slug:
+          separator: -
+          style: camel
+          fields:
+            - name
+  oneToMany:
+    jobs:
+      targetEntity: WSAD\JobsBundle\Entity\Job
+      mappedBy: category 
   lifecycleCallbacks: {  }
+  indexes:
+    search_idx:
+      columns: slug

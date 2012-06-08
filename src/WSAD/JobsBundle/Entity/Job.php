@@ -14,10 +14,10 @@ class Job
      */
     private $id;
 
-    /**
-     * @var integer $category_id
-     */
-    private $category_id;
+	/**
+	* @var WSAD\JobsBundle\Entity\Category
+	*/
+    private $category;
 
     /**
      * @var string $type
@@ -101,24 +101,29 @@ class Job
     }
 
     /**
-     * Set category_id
+     * Set category
      *
-     * @param integer $categoryId
+     * @param WSAD\JobsBundle\Entity\Category $category
      */
-    public function setCategoryId($categoryId)
+    public function setCategory(\WSAD\JobsBundle\Entity\Category $category)
     {
-        $this->category_id = $categoryId;
+        $this->category = $category;
     }
 
     /**
-     * Get category_id
+     * Get category
      *
-     * @return integer 
+     * @return WSAD\JobsBundle\Entity\Category
      */
-    public function getCategoryId()
+    public function getCategory()
     {
-        return $this->category_id;
+        return $this->category;
     }
+    
+    /**
+     * @var string $slug
+     */
+    private $slug;
 
     /**
      * Set type
@@ -338,6 +343,26 @@ class Job
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+    	$this->slug = $slug;
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+    	return $this->slug;
     }
 
     /**

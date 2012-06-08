@@ -1,14 +1,12 @@
 WSAD\JobsBundle\Entity\Job:
   type: entity
-  table: null
+  table: jobs
   fields:
     id:
       type: integer
       id: true
       generator:
         strategy: AUTO
-    category_id:
-      type: integer
     type:
       type: string
       length: 255
@@ -40,10 +38,38 @@ WSAD\JobsBundle\Entity\Job:
     email:
       type: string
       length: 255
+    slug:
+      type: string
+      length: 765
+      gedmo:
+        slug:
+          separator: -
+          style: camel
+          fields:
+            - company
+            - location
+            - position
     expires_at:
       type: datetime
     created_at:
       type: datetime
+      gedmo:
+        timestampable:
+          on: create
     updated_at:
       type: datetime
+      gedmo:
+        timestampable:
+          on: update
+  manyToOne:
+    category:
+      targetEntity: WSAD\JobsBundle\Entity\Category
+      inversedBy: jobs
+      joinColumns:
+        category_id:
+          referencedColumnName: id
+      orphanRemoval: false
   lifecycleCallbacks: {  }
+  
+
+  
