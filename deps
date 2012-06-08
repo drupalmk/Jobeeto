@@ -61,3 +61,11 @@
     git=http://github.com/symfony/AsseticBundle.git
     target=/bundles/Symfony/Bundle/AsseticBundle
     version=v1.0.1
+
+[DoctrineExtensionsBundle]
+    git=http://github.com/stof/StofDoctrineExtensionsBundle.git
+    target=/bundles/Stof/DoctrineExtensionsBundle
+    
+[Gedmo]
+	git=https://github.com/l3pp4rd/DoctrineExtensions.git
+	target=/gedmo-doctrine-extensions
