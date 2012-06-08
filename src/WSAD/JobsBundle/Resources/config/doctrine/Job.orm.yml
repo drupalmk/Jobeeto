@@ -1,0 +1,49 @@
+WSAD\JobsBundle\Entity\Job:
+  type: entity
+  table: null
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    category_id:
+      type: integer
+    type:
+      type: string
+      length: 255
+    company:
+      type: string
+      length: 255
+    logo:
+      type: string
+      length: 255
+    url:
+      type: string
+      length: 255
+    position:
+      type: string
+      length: 255
+    location:
+      type: string
+      length: 255
+    description:
+      type: string
+      length: '4000'
+    how_to_apply:
+      type: string
+      length: '4000'
+    is_public:
+      type: boolean
+    is_activated:
+      type: boolean
+    email:
+      type: string
+      length: 255
+    expires_at:
+      type: datetime
+    created_at:
+      type: datetime
+    updated_at:
+      type: datetime
+  lifecycleCallbacks: {  }
