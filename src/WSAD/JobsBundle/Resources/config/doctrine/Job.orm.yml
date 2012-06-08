@@ -16,9 +16,11 @@ WSAD\JobsBundle\Entity\Job:
     logo:
       type: string
       length: 255
+      nullable: true
     url:
       type: string
       length: 255
+      nullable: true
     position:
       type: string
       length: 255
