@@ -102,4 +102,14 @@ class Category
     {
         return $this->slug;
     }
+    
+    /**
+     * Get category name
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+    	return $this->name;
+    }
 }
