@@ -1,4 +1,4 @@
-symfony v2.0.15
+symfony v2.0.14
 twig v1.8.2
 monolog 1.0.2
 doctrine-common 2.1.4
@@ -13,3 +13,5 @@ JMSSecurityExtraBundle e752f888c51425f71382c056961f10f2be642102
 SensioDistributionBundle 41a6c5caed65f02bb09c95a90579f047616471fd
 SensioGeneratorBundle 83b768a487a6878f2bc2ad6859bd61a3651a7885
 AsseticBundle v1.0.1
+DoctrineExtensionsBundle f141a698d65271a18d86469c1f7b29d7e24170dd
+Gedmo 7b6631fdb4537c5bb46ebd3f73fb81fd94115559
