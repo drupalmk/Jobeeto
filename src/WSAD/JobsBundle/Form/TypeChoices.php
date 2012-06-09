@@ -9,7 +9,7 @@ class TypeChoices implements ChoiceListInterface {
 	public static $choices = array(
 		'full-time' => 'Full time',	
 		'part-time' => 'Part time',	
-		'freelace'  => 'Freelance',
+		'freelance'  => 'Freelance',
 	);
 	
 	public static function getChoiceNameByValue($value)
