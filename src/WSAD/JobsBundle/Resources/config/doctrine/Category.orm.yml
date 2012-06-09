@@ -16,7 +16,7 @@ WSAD\JobsBundle\Entity\Category:
       gedmo:
         slug:
           separator: -
-          style: camel
+          style: lower
           fields:
             - name
   oneToMany:

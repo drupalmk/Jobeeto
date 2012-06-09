@@ -46,7 +46,7 @@ WSAD\JobsBundle\Entity\Job:
       gedmo:
         slug:
           separator: -
-          style: camel
+          style: lower
           fields:
             - company
             - location
