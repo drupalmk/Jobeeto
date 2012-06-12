@@ -21,7 +21,5 @@ class TypeChoices implements ChoiceListInterface {
 		
 		return self::$choices;
 		
-	}
-	
-	
+	}	
 }

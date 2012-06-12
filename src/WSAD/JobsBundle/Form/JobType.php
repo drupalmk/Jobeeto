@@ -7,16 +7,18 @@ use Symfony\Component\Form\FormBuilder;
 
 
 class JobType extends AbstractType
-{
+{	
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
         	->add('category')
-            ->add('type', 'choice', array(
+            ->add('type', 'choice', 
+            		array(
             			'expanded' => true, 
             			'multiple' => false,
             			'choice_list' => new TypeChoices(),
-            		))
+            		)
+            	  )
             ->add('company')
             ->add('logo')
             ->add('url')
@@ -27,7 +29,7 @@ class JobType extends AbstractType
             ->add('is_public')
             #->add('is_activated')
             ->add('email', 'email', array('max_length' => 255, 'required' => true))
-            ->add('slug')
+            #->add('slug')
             #->add('expires_at')
             #->add('created_at')
             #->add('updated_at')

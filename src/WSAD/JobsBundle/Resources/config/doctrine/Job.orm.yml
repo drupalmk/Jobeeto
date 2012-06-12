@@ -71,7 +71,8 @@ WSAD\JobsBundle\Entity\Job:
         category_id:
           referencedColumnName: id
       orphanRemoval: false
-  lifecycleCallbacks: {  }
+  lifecycleCallbacks:
+    prePersist: [ setExpirationDate ]
   
 
   

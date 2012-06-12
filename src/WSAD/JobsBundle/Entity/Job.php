@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Job
 {
+	
+	const ACTIVE_DAYS = 30;
     /**
      * @var integer $id
      */
@@ -88,6 +90,13 @@ class Job
      * @var datetime $updated_at
      */
     private $updated_at;
+    
+    
+    public function setExpirationDate()
+    {
+    	$days = self::ACTIVE_DAYS;
+    	$this->expires_at = new \DateTime('+'.$days.' days');	
+    }
 
 
     /**
