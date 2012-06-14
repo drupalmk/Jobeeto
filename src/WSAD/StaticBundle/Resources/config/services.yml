@@ -1,0 +1,7 @@
+parameters:
+#    static.example.class: WSAD\StaticBundle\Example
+
+services:
+#    static.example:
+#        class: %static.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

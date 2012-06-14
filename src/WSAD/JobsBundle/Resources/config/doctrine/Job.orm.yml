@@ -72,7 +72,12 @@ WSAD\JobsBundle\Entity\Job:
           referencedColumnName: id
       orphanRemoval: false
   lifecycleCallbacks:
-    prePersist: [ setExpirationDate ]
+    prePersist: [ setExpirationDate, preUpload ]
+    preUpdate: [ preUpload ]
+    postPersist: [ upload ]
+    postUpdate: [ upload ]
+    postRemove: [ removeUpload ]
+    
   
 
   

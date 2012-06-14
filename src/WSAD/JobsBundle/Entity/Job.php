@@ -3,6 +3,7 @@
 namespace WSAD\JobsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * WSAD\JobsBundle\Entity\Job
@@ -11,6 +12,12 @@ class Job
 {
 	
 	const ACTIVE_DAYS = 30;
+	
+	/**
+	 * @var UploadedFile 
+	 */
+	public $file;
+	
     /**
      * @var integer $id
      */
@@ -69,7 +76,7 @@ class Job
     /**
      * @var boolean $is_activated
      */
-    private $is_activated;
+    private $is_activated = false;
 
     /**
      * @var string $email
@@ -96,6 +103,57 @@ class Job
     {
     	$days = self::ACTIVE_DAYS;
     	$this->expires_at = new \DateTime('+'.$days.' days');	
+    }
+    
+    public function preUpload()
+    {
+    	if (null !== $this->file) {
+    		// do whatever you want to generate a unique name
+    		$this->logo = uniqid().'.'.$this->file->guessExtension();
+    	}
+    }
+    
+    public function upload()
+    {
+    	if (null === $this->file) {
+    		return;
+    	}
+    
+    	// if there is an error when moving the file, an exception will
+    	// be automatically thrown by move(). This will properly prevent
+    	// the entity from being persisted to the database on error
+    	$this->file->move($this->getUploadRootDir(), $this->logo);
+    
+    	unset($this->file);
+    }
+    
+    public function removeUpload()
+    {
+    	if ($file = $this->getAbsolutePath()) {
+    		unlink($file);
+    	}
+    }
+    
+    public function getAbsolutePath()
+    {
+    	return null === $this->logo ? null : $this->getUploadRootDir().'/'.$this->logo;
+    }
+    
+    public function getWebPath()
+    {
+    	return null === $this->logo ? null : $this->getUploadDir().'/'.$this->logo;
+    }
+    
+    protected function getUploadRootDir()
+    {
+    	// the absolute directory path where uploaded documents should be saved
+    	return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+    
+    protected function getUploadDir()
+    {
+    	// get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+    	return 'uploads/jobs';
     }
 
 

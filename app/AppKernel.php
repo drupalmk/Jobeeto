@@ -20,6 +20,7 @@ class AppKernel extends Kernel
         		
         	new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new WSAD\JobsBundle\JobsBundle(),
+            new WSAD\StaticBundle\StaticBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
