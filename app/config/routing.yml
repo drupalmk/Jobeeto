@@ -1,6 +1,11 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: "JobsBundle:Job:index" }
+
 JobsBundle:
     resource: "@JobsBundle/Resources/config/routing.yml"
     prefix:   /
+    
 
 # Internal routing configuration to handle ESI
 #_internal:
