@@ -3,7 +3,6 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <title>{% block title %}{% endblock %} | Jobeet - Your best job board</title>
-      {% block stylesheets %}
       {% stylesheets
            filter='cssrewrite'
            'bundles/static/css/main.css'
@@ -12,7 +11,6 @@
           %}
       <link rel="stylesheet" href="{{ asset_url }}" />
       {% endstylesheets %}
-      {% endblock %}
       <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
       <link rel="alternate" type="application/atom+xml" title="Latest Jobs"
         href="" />
