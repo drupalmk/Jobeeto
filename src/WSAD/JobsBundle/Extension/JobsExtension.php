@@ -3,8 +3,8 @@ namespace WSAD\JobsBundle\Extension;
 
 use WSAD\JobsBundle\Form\TypeChoices;
 
-class JobsExtension extends \Twig_Extension {
-
+class JobsExtension extends \Twig_Extension 
+{
     public function getFilters() 
     {
         return array(

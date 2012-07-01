@@ -9,3 +9,5 @@ services:
         class: WSAD\JobsBundle\Extension\JobsExtension
         tags:
             - { name: twig.extension }
+
+       
