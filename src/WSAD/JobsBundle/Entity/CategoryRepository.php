@@ -16,8 +16,10 @@ class CategoryRepository extends EntityRepository
 	{
 		$dql = 'SELECT c FROM '.$this->_entityName.' c LEFT JOIN c.jobs j '
 			  .'WHERE j.expires_at > ?1 AND j.is_activated = ?2';
+		
 	    $query = $this->_em->createQuery($dql);
 	    $query->setParameters(array(1 => new \DateTime, 2 => true));
+	    
     	return $query->getResult();					
 	}
 	
@@ -25,9 +27,11 @@ class CategoryRepository extends EntityRepository
 	{
 		$categories = $this->getContainingJobs();
 		$jobsRepository = $this->_em->getRepository('JobsBundle:Job');
+		
 		foreach($categories as $c) {
 			$c->setActiveJobs($jobsRepository->getJobsByCategory($c->getId(), $limit));
 		}
+		
 		return $categories;
 	}
 }
