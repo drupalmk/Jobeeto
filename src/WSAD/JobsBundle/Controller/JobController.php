@@ -21,7 +21,7 @@ class JobController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $categories = $em->getRepository('JobsBundle:Category')->getCategoriesWithJobs(10);
+        $categories = $em->getRepository('JobsBundle:Category')->getWithActiveJobs(10);
 
         return $this->render('JobsBundle:Job:index.html.twig', array(
             'categories' => $categories,

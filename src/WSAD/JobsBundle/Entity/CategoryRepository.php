@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
-	public function getContainingJobs()
+	public function getContainingActiveJobs()
 	{
 		$dql = 'SELECT c FROM '.$this->_entityName.' c LEFT JOIN c.jobs j '
 			  .'WHERE j.expires_at > ?1 AND j.is_activated = ?2';
@@ -23,13 +23,13 @@ class CategoryRepository extends EntityRepository
     	return $query->getResult();					
 	}
 	
-	public function getCategoriesWithJobs($limit)
+	public function getWithActiveJobs($limit)
 	{
-		$categories = $this->getContainingJobs();
+		$categories = $this->getContainingActiveJobs();
 		$jobsRepository = $this->_em->getRepository('JobsBundle:Job');
 		
 		foreach($categories as $c) {
-			$c->setActiveJobs($jobsRepository->getJobsByCategory($c->getId(), $limit));
+			$c->setActiveJobs($jobsRepository->getActiveByCategory($c->getId(), $limit));
 		}
 		
 		return $categories;

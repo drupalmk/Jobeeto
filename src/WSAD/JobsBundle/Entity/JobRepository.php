@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class JobRepository extends EntityRepository
 {	
-	public function getJobsByCategory($cid, $limit) 
+	public function getActiveByCategory($cid, $limit) 
 	{
 		$dql = 'SELECT j FROM '.$this->_entityName.' j WHERE j.category = ?1 ' 
 			  .'AND j.is_activated = ?2 AND j.expires_at > ?3 ORDER BY j.expires_at DESC';
