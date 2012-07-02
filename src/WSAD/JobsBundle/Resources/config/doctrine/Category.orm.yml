@@ -27,3 +27,4 @@ WSAD\JobsBundle\Entity\Category:
   indexes:
     search_idx:
       columns: slug
+  repositoryClass: WSAD\JobsBundle\Entity\CategoryRepository

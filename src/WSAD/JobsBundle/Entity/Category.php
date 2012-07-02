@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
+	
     /**
      * @var integer $id
      */
@@ -28,6 +29,11 @@ class Category
 	* @var WSAD\JobsBundle\Entity\Job
 	*/
     private $jobs;
+    
+    /**
+     * @var WSAD\JobsBundle\Entity\Job
+     */
+    private $activeJobs;
 
     public function __construct()
     {
@@ -53,6 +59,27 @@ class Category
     {
     	return $this->jobs;
     }
+    
+    /**
+     * Set active jobs
+     * 
+     * @param Doctrine\Common\Collections\Collection
+     */
+    public function setActiveJobs($jobs)
+    {
+    	$this->activeJobs = $jobs;
+    }
+
+    /**
+     * Get active jobs
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getActiveJobs()
+    {
+    	return $this->activeJobs;
+    }
+    
     /**
      * Get id
      *

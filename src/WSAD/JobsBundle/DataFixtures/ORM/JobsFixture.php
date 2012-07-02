@@ -63,7 +63,7 @@ class JobsFixture implements FixtureInterface
         $em->persist($sensio);
         $em->persist($extreme);
 
-        
+     
         for ($i = 0; $i < 20; $i++) {
         	$job = new Job();
         	$job->setCategory($programming);
@@ -79,7 +79,7 @@ class JobsFixture implements FixtureInterface
         	$job->setExpiresAt(new \DateTime('2012-10-10'));
         	$em->persist($job);
         }
-        
+       
         $em->flush();
         
     }

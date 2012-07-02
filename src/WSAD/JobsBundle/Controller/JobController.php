@@ -21,10 +21,10 @@ class JobController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('JobsBundle:Job')->findAll();
+        $categories = $em->getRepository('JobsBundle:Category')->getCategoriesWithJobs(10);
 
         return $this->render('JobsBundle:Job:index.html.twig', array(
-            'entities' => $entities
+            'categories' => $categories,
         ));
     }
 

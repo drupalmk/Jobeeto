@@ -11,5 +11,16 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class JobRepository extends EntityRepository
-{
+{	
+	public function getJobsByCategory($cid, $limit) 
+	{
+		$dql = 'SELECT j FROM '.$this->_entityName.' j WHERE j.category = ?1 ' 
+			  .'AND j.is_activated = ?2 AND j.expires_at > ?3 ORDER BY j.expires_at DESC';
+		
+		$query = $this->_em->createQuery($dql);
+		$query->setParameters(array(1 => $cid, 2 => true, 3 => new \DateTime));
+		$query->setMaxResults($limit);
+		
+		return $query->getResult();
+	}
 }

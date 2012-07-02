@@ -77,7 +77,7 @@ WSAD\JobsBundle\Entity\Job:
     postPersist: [ upload ]
     postUpdate: [ upload ]
     postRemove: [ removeUpload ]
-    
+  repositoryClass: WSAD\JobsBundle\Entity\JobRepository   
   
 
   
