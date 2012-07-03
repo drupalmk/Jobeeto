@@ -22,7 +22,7 @@ class TypeChoices implements ChoiceListInterface {
 		return self::$choices;	
 	}
 
-	public static function getTypeChoices() 
+	public static function getTypeChoicesKeys() 
 	{
 		return array_keys(self::$choices);
 	}
