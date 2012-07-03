@@ -17,9 +17,13 @@ class TypeChoices implements ChoiceListInterface {
 		return self::$choices[$value];
 	}
 
-	public function getChoices() {
-		
-		return self::$choices;
-		
-	}	
+	public function getChoices() 
+	{	
+		return self::$choices;	
+	}
+
+	public static function getTypeChoices() 
+	{
+		return array_keys(self::$choices);
+	}
 }

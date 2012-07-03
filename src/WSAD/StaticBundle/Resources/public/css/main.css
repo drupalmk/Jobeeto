@@ -118,7 +118,7 @@ body
 
 #sub_header .post div a:hover
 {
-  background-position: left -50px;
+  background-position: -50px;
 }
 
 #sub_header .post div a:active
