@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block content %}
-{% form_theme form 'JobsBundle:Form:field.html.twig' %}
+{% form_theme form 'JobsBundle:Form:custom_table_layout.html.twig' %}
 <h1>Jobs creation</h1>
 <form id="job_form" novalidate action="{{ path('job_create') }}" method="post" {{ form_enctype(form) }}>
      {{ form_widget(form) }}

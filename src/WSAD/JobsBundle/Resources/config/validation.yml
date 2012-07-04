@@ -1,0 +1,30 @@
+WSAD\JobsBundle\Entity\Job:
+    properties:
+        category:
+            - NotBlank: ~
+        type:
+            - NotNull: ~
+            - Choice: { callback: [TypeChoices, getTypeChoices] }  
+        company:
+            - NotBlank: ~
+            - MaxLength: 255
+        file:
+            - image: { maxSize: 1024k }
+        url:
+            - MaxLength: 255
+        position:
+            - NotBlank: ~
+            - MaxLength: 255
+        location:
+            - NotBlank: ~
+            - MaxLength: 255
+        description:
+            - NotBlank: ~
+            - MaxLength: 4000       
+        how_to_apply:
+            - NotBlank: ~
+            - MaxLength: 4000
+        email:
+            - NotBlank: ~
+            - MaxLength: 255  
+            - Email: { checkMX: true }    

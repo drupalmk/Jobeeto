@@ -42,6 +42,6 @@ class JobType extends AbstractType
 
     public function getName()
     {
-        return 'wsad_jobsbundle_jobtype';
+        return 'job';
     }
 }

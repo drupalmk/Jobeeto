@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block content %}
-{% form_theme form 'form_table_layout.html.twig' %}
+{% form_theme form 'JobsBundle:Form:custom_table_layout.html.twig' %}
 <h1>Jobs edit</h1>
 <form action="{{ path('job_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
