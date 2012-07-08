@@ -4,7 +4,7 @@ WSAD\JobsBundle\Entity\Job:
             - NotBlank: ~
         type:
             - NotNull: ~
-            - Choice: { callback: [TypeChoices, getTypeChoices] }  
+            - Choice: { callback: [TypeChoices, getTypeChoicesKeys] }  
         company:
             - NotBlank: ~
             - MaxLength: 255
