@@ -2,6 +2,8 @@
 
 namespace WSAD\JobsBundle\Controller;
 
+use WSAD\JobsBundle\Form\TypeChoices;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use WSAD\JobsBundle\Entity\Job;
@@ -58,6 +60,7 @@ class JobController extends Controller
     public function newAction()
     {
         $entity = new Job();
+        $entity->setType(TypeChoices::getPreferredChoiceKey());
         $form   = $this->createForm(new JobType(), $entity);
 
         return $this->render('JobsBundle:Job:new.html.twig', array(

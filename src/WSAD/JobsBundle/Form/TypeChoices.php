@@ -26,4 +26,9 @@ class TypeChoices implements ChoiceListInterface {
 	{
 		return array_keys(self::$choices);
 	}
+	
+	public static function getPreferredChoiceKey()
+	{
+		return 'full-time';
+	}
 }
