@@ -9,7 +9,7 @@ WSAD\JobsBundle\Entity\Job:
             - NotBlank: ~
             - MaxLength: 255
         file:
-            - image: { maxSize: 1024k }
+            - Image: { maxSize: 1024k }
         url:
             - MaxLength: 255
         position:
