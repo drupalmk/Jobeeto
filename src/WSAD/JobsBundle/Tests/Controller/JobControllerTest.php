@@ -6,6 +6,43 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class JobControllerTest extends WebTestCase
 {
+	
+	public function testFormDisplayProperly()
+	{
+		$client = static::createClient();
+		$crawler = $client->request('GET', '/job/new');
+		$this->assertTrue(200 === $client->getResponse()->getStatusCode());
+		$this->assertTrue($crawler->filter('#job_form button')->count() > 0);		
+	}
+	
+	public function testCreatingJobWithBasicFieldsAndDeletion() 
+	{
+		$client = static::createClient();
+		$crawler = $client->request('GET', '/job/new');
+		
+		$form = $crawler->selectButton('Create')->form();
+		
+		$company = 'ACME INC';
+		
+		$form['job[company]'] = $company;
+		$form['job[position]'] = 'Web Developer';
+		$form['job[location]'] = 'Warsaw, Poland';
+		$form['job[description]'] = 'Some description';
+		$form['job[how_to_apply]'] = 'How to apply?';
+		$form['job[email]'] = 'acme@email.com';
+		
+		$client->submit($form);
+		$crawler = $client->followRedirect();
+		
+		$this->assertTrue($crawler->filter('#job h1:contains("'.$company.'")')->count() > 0);
+		
+		$client->submit($crawler->selectButton('Delete')->form());
+		$crawler = $client->followRedirect();
+		
+		$this->assertTrue($crawler->filter('#jobs td.company:contains("'.$company.'")')->count() == 0);
+		
+		
+	}
     /*
     public function testCompleteScenario()
     {
